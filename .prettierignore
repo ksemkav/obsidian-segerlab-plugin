@@ -1,0 +1,5 @@
+# Ignore all JSON files for Prettier
+**/*.json
+
+# If you want Prettier to still format specific JSON files, negate them here. For example:
+# !package.json
