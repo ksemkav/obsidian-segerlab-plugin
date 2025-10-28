@@ -3,7 +3,7 @@
 	"name": "Segerlab",
 	"version": "0.0.1",
 	"minAppVersion": "0.15.0",
-	"description": "Renders calculator views within Obsidian notes from JSON data copied from the Segerlab app.",
+	"description": "Renders calculator views within notes from JSON data copied from the Segerlab app.",
 	"author": "Semyon Kononchuk",
 	"authorUrl": "https://kononchuk.me",
   "fundingUrl": {
