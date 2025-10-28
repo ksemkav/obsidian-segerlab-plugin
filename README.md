@@ -1,6 +1,8 @@
 # Segerlab Plugin for Obsidian
 
-A plugin that brings calculation views from Segerlab into your Obsidian notes.
+[Segerlab](https://segerlab.ru) — a notebook for ceramists	and potters who make their own glazes.
+
+This plugin brings calculators views from Segerlab app into your Obsidian notes.
 
 ## Features
 
@@ -9,6 +11,9 @@ A plugin that brings calculation views from Segerlab into your Obsidian notes.
 - **Multi-language Support**: Interface available in English and Russian, automatically adapts to your Obsidian language setting
 
 ## Installation
+
+### Enable «I use Obsidian» setting in Segerlab app
+To see the Obsidian button in calculators, enable the corresponding setting in the "My Profile" page (press the gear icon in the lower-left corner).
 
 ### From Community Plugins _(not available yet)_
 1. Open Obsidian Settings
@@ -33,6 +38,8 @@ A plugin that brings calculation views from Segerlab into your Obsidian notes.
 ### Example:
 
 <img alt="example.png" src="example.png" width="720"/>
+
+#### Example of the code block content copied from Segerlab:
 
 ````markdown
 ```segerlab-calculator
