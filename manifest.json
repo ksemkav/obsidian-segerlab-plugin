@@ -6,6 +6,9 @@
 	"description": "Renders calculator views within Obsidian notes from JSON data copied from the Segerlab app.",
 	"author": "Semyon Kononchuk",
 	"authorUrl": "https://kononchuk.me",
-	"fundingUrl": "https://github.com/sponsors/ksemkav",
+  "fundingUrl": {
+    "GitHub Sponsor": "https://github.com/sponsors/ksemkav",
+    "Segerlab": "https://www.segerlab.ru/"
+  },
 	"isDesktopOnly": false
 }
