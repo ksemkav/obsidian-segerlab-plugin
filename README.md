@@ -4,6 +4,8 @@
 
 This plugin brings calculators views from Segerlab app into your Obsidian notes.
 
+Для информации на русском языке смотрите [README.ru.md](README.ru.md).
+
 ## Features
 
 - **Calculator Rendering**: Transforms markdown code blocks with language `segerlab-calculation` into interactive calculator views
