@@ -25,7 +25,11 @@ A plugin that brings calculation views from segerlab into your Obsidian notes.
 
 1. Open some recipe in segerlab and find a calculator you want to see in your Obsidian note.
 1. Click to the button with Obsidian logo. It will copy current state of the calculator into clipboard.
-	 ![obsidian_button.png](obsidian_button.png)
+
+	 <img alt="obsidian_button.png" src="obsidian_button.png" width="300"/>
+	 
 1. Paste the clipboard content into your Obsidian note. After moving cursor out of the code block, it will be rendered as a calculator.
-   Example:
-   ![example.png](example.png)
+	 
+### Example:
+
+<img alt="example.png" src="example.png" width="400"/>
