@@ -1,4 +1,4 @@
-import { FormulaViewType, Oxide, OxideRoles } from "../dtos";
+import { FormulaViewType, Oxide, OxideRoles } from "../../obsidian-segerlab-dtos";
 import { FC } from "react";
 import { SegerFormulaItem } from "./SegerFormulaItem";
 import { useTranslation } from "react-i18next";
@@ -20,10 +20,11 @@ const VerticalDivider = () => (
   />
 );
 
-export const SegerFormulaView: FC<SegerFormulaProps> = ({
-                                                          formula,
-                                                          viewType,
-                                                        }) => {
+export const SegerFormulaView: FC<SegerFormulaProps> = (
+  {
+    formula,
+    viewType,
+  }) => {
   const { t } = useTranslation();
 
   const alcali = formula?.Alcali && Object.entries(formula.Alcali);

@@ -11,17 +11,14 @@ import { setLocale } from "./date-helpers";
 import * as russianTranslations from "./dictionaries/translation.ru.json";
 import * as englishTranslations from "./dictionaries/translation.en.json";
 
-export function initializeLocalization() {
+export function initializeLocalization(selectedLanguage: string) {
   return i18n
-    //.use(intervalPlural)
-    //.use(LanguageDetector)
     .use(initReactI18next)
     .init({
       fallbackLng,
       defaultNS,
       load: "languageOnly",
       preload: [fallbackLng, "en"],
-      //saveMissing: process.env.NODE_ENV !== 'production',
       lowerCaseLng: true,
       initImmediate: true,
       debug: false,
@@ -37,13 +34,9 @@ export function initializeLocalization() {
           [defaultNS]: englishTranslations,
         },
       },
-      //   backend: {
-      //     loadPath: '/dictionaries/{{ns}}.{{lng}}.json',
-      //     queryStringParams: { v: appVersion() },
-      //   },
     })
     .then(() => {
-      return changeLanguage(i18n.language as Language);
+      return selectedLanguage === Language.ru ? changeLanguage(Language.ru) : changeLanguage(Language.en);
     });
 }
 

@@ -1,4 +1,4 @@
-import { FormulaViewType } from "../dtos";
+import { FormulaViewType } from "../../obsidian-segerlab-dtos";
 import { FC } from "react";
 import { useScopedTranslation } from "src/localization/useScopedTranslation";
 
@@ -8,11 +8,12 @@ type SegerFormulaItemProps = {
   viewType: FormulaViewType;
 };
 
-export const SegerFormulaItem: FC<SegerFormulaItemProps> = ({
-                                                              viewType,
-                                                              oxide,
-                                                              value,
-                                                            }) => {
+export const SegerFormulaItem: FC<SegerFormulaItemProps> = (
+  {
+    viewType,
+    oxide,
+    value,
+  }) => {
   const { t } = useScopedTranslation("Oxide");
 
   const styles = {

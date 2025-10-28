@@ -1,17 +1,18 @@
-import { IngredientFieldDto } from "./dtos";
+import { ObsidianIngredientFieldV1 } from "../obsidian-segerlab-dtos";
 import { useTranslation } from "react-i18next";
-import AttachmentIcon from "./assets/icons/attachment.svg";
+import AttachmentIcon from "../assets/icons/attachment.svg";
 
 interface ItemProps {
   textAlign?: "start" | "center" | "end" | "left" | "right" | "justify";
   showBorder?: boolean;
 }
 
-const Item = ({
-                children,
-                textAlign = "start",
-                showBorder = true,
-              }: ItemProps & { children: React.ReactNode }) => (
+const Item = (
+  {
+    children,
+    textAlign = "start",
+    showBorder = true,
+  }: ItemProps & { children: React.ReactNode }) => (
   <div
     style={{
       backgroundColor: "#fff",
@@ -38,7 +39,7 @@ const flexIngredientAmountStyle: React.CSSProperties = {
   flex: `0 0 4.5rem`,
 };
 
-export const IngredientField = ({ name, amount }: IngredientFieldDto) => {
+export const IngredientField = ({ name, value }: ObsidianIngredientFieldV1) => {
   return (
     <>
       <div style={flexContainerStyle}>
@@ -49,7 +50,7 @@ export const IngredientField = ({ name, amount }: IngredientFieldDto) => {
           <Item textAlign="center">
             {
               parseFloat(
-                amount.toFixed(3),
+                value.toFixed(3),
               ).toString() /*TODO Check how to ignore trailing zeros */
             }
           </Item>
@@ -64,26 +65,27 @@ const HorizontalDivider = () => (
 );
 
 export interface IngredientsProps {
-  ingredients: IngredientFieldDto[];
+  ingredients: ObsidianIngredientFieldV1[];
   includeAdditionsIntoCalculations?: boolean;
   ingredientsOverallSum: number;
 }
 
-export const Ingredients = ({
-                              ingredients,
-                              ingredientsOverallSum,
-                              includeAdditionsIntoCalculations,
-                            }: IngredientsProps) => {
+export const Ingredients = (
+  {
+    ingredients,
+    ingredientsOverallSum,
+    includeAdditionsIntoCalculations,
+  }: IngredientsProps) => {
   const { t } = useTranslation();
 
   const sortedIngredients = ingredients.sort(
     (a, b) => (a.index || 0) - (b.index || 0),
   );
   const mainInredients = sortedIngredients.filter(
-    (ingredient) => !ingredient.isAdditional,
+    (ingredient) => !ingredient.isAddition,
   );
   const additionalIngredients = sortedIngredients.filter(
-    (ingredient) => ingredient.isAdditional,
+    (ingredient) => ingredient.isAddition,
   );
 
   return (
@@ -115,7 +117,7 @@ export const Ingredients = ({
         </div>
       </div>
 
-      <div style={{ marginBottom: "0.5rem" }}>
+      {additionalIngredients.length > 0 && (<div style={{ marginBottom: "0.5rem" }}>
         <div
           style={{
             display: "flex",
@@ -146,7 +148,7 @@ export const Ingredients = ({
           <SwitchDisplay checked={includeAdditionsIntoCalculations} />
         </div>
         <HorizontalDivider />
-      </div>
+      </div>)}
 
       {additionalIngredients.map((ingredient) => (
         <IngredientField

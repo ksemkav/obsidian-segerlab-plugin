@@ -1,9 +1,9 @@
 import { SegerFormulaView } from "./SegerFormulaView";
 import {
   FormulaViewType,
-  RecipeCalculationBaseDto,
+  ObsidianCalculationResultsV1,
   TemperatureZone,
-} from "../dtos";
+} from "../../obsidian-segerlab-dtos";
 import { FC } from "react";
 
 import { ViewSelector } from "./ViewSelector";
@@ -13,16 +13,17 @@ type SegerFormulaProps = {
   disabled: boolean;
   isPrintView?: boolean;
   viewType: FormulaViewType;
-  calculation?: RecipeCalculationBaseDto;
+  calculation?: ObsidianCalculationResultsV1;
   showMoreCoefficients?: boolean;
 };
 
-export const SegerFormula: FC<SegerFormulaProps> = ({
-                                                      viewType,
-                                                      calculation,
-                                                      showMoreCoefficients,
-                                                      isPrintView,
-                                                    }) => {
+export const SegerFormula: FC<SegerFormulaProps> = (
+  {
+    viewType,
+    calculation,
+    showMoreCoefficients,
+    isPrintView,
+  }) => {
   const { t } = useTranslation();
 
   const fluxibilityTemperatureSign =

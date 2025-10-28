@@ -1,4 +1,4 @@
-import { FormulaViewType } from "../dtos";
+import { FormulaViewType } from "../../obsidian-segerlab-dtos";
 import { useScopedTranslation } from "src/localization/useScopedTranslation";
 
 export const ViewSelector = ({ value }: { value: FormulaViewType }) => {
