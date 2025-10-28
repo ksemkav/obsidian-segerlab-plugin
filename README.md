@@ -1,6 +1,6 @@
 # Segerlab Plugin for Obsidian
 
-A plugin that brings calculation views from segerlab into your Obsidian notes.
+A plugin that brings calculation views from Segerlab into your Obsidian notes.
 
 ## Features
 
@@ -23,8 +23,8 @@ A plugin that brings calculation views from segerlab into your Obsidian notes.
 
 ## Usage
 
-1. Open some recipe in segerlab and find a calculator you want to see in your Obsidian note.
-1. Click to the button with Obsidian logo. It will copy current state of the calculator into clipboard.
+1. Open some recipe in Segerlab and find a calculator you want to see in your Obsidian note.
+1. Press the button with Obsidian logo. It will copy current state of the calculator into clipboard.
 
 	 <img alt="obsidian_button.png" src="obsidian_button.png" width="300"/>
 	 
@@ -32,4 +32,4 @@ A plugin that brings calculation views from segerlab into your Obsidian notes.
 	 
 ### Example:
 
-<img alt="example.png" src="example.png" width="400"/>
+<img alt="example.png" src="example.png" width="720"/>
