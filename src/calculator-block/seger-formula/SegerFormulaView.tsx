@@ -2,6 +2,7 @@ import { FormulaViewType, Oxide, OxideRoles } from "../../obsidian-segerlab-dtos
 import { FC } from "react";
 import { SegerFormulaItem } from "./SegerFormulaItem";
 import { useTranslation } from "react-i18next";
+import styles from "./seger-formula.module.css";
 
 type SegerFormulaProps = {
   isPrintView?: boolean;
@@ -11,14 +12,7 @@ type SegerFormulaProps = {
   viewType: FormulaViewType;
 };
 
-const VerticalDivider = () => (
-  <div
-    style={{
-      borderLeft: "1px solid #007aff",
-      alignSelf: "stretch",
-    }}
-  />
-);
+const VerticalDivider = () => (<div className={styles.verticalDivider}/>);
 
 export const SegerFormulaView: FC<SegerFormulaProps> = (
   {
@@ -33,20 +27,10 @@ export const SegerFormulaView: FC<SegerFormulaProps> = (
   const gFormers = formula?.GFormers && Object.entries(formula.GFormers);
   const other = formula?.Other && Object.entries(formula.Other);
 
-  const segerFormulaViewHeaderStyle = {
-    alignSelf: "center",
-    fontWeight: 400,
-    fontSize: "10px",
-    lineHeight: "1rem",
-    paddingBottom: "1rem",
-    letterSpacing: "0.1em",
-    color: "#007AFF",
-  };
-
   return (
-    <div style={{ display: "flex", flexDirection: "row", gap: "8px" }}>
-      <div style={{ flexGrow: 1, display: "flex", flexDirection: "column" }}>
-        <div style={segerFormulaViewHeaderStyle}>
+    <div className={styles.segerFormulaContainer}>
+      <div className={styles.segerFormulaColumnContainer}>
+        <div className={styles.segerFormulaViewHeaderStyle}>
           {`${t("Oxide.R2O")}/${t("Oxide.RO")}`}
         </div>
         {alcali?.map(([oxide, value]) => (
@@ -57,7 +41,7 @@ export const SegerFormulaView: FC<SegerFormulaProps> = (
             value={value}
           />
         ))}
-        <div style={segerFormulaViewHeaderStyle} />
+        <div className={styles.segerFormulaViewHeaderStyle} />
         {aEarth?.map(([oxide, value]) => (
           <SegerFormulaItem
             key={oxide}
@@ -70,8 +54,8 @@ export const SegerFormulaView: FC<SegerFormulaProps> = (
 
       <VerticalDivider />
 
-      <div style={{ flexGrow: 1, display: "flex", flexDirection: "column" }}>
-        <div style={segerFormulaViewHeaderStyle}>{t("Oxide.R2O3")}</div>
+      <div className={styles.segerFormulaColumnContainer}>
+        <div className={styles.segerFormulaViewHeaderStyle}>{t("Oxide.R2O3")}</div>
         {stabs?.map(([oxide, value]) => (
           <SegerFormulaItem
             key={oxide}
@@ -84,8 +68,8 @@ export const SegerFormulaView: FC<SegerFormulaProps> = (
 
       <VerticalDivider />
 
-      <div style={{ flexGrow: 1, display: "flex", flexDirection: "column" }}>
-        <div style={segerFormulaViewHeaderStyle}>{t("Oxide.RO2")}</div>
+      <div className={styles.segerFormulaColumnContainer}>
+        <div className={styles.segerFormulaViewHeaderStyle}>{t("Oxide.RO2")}</div>
         {gFormers?.map(([oxide, value]) => (
           <SegerFormulaItem
             key={oxide}
@@ -94,7 +78,7 @@ export const SegerFormulaView: FC<SegerFormulaProps> = (
             value={value}
           />
         ))}
-        <div style={segerFormulaViewHeaderStyle}>{t("OxideRole.Other")}</div>
+        <div className={styles.segerFormulaViewHeaderStyle}>{t("OxideRole.Other")}</div>
         {other?.map(([oxide, value]) => (
           <SegerFormulaItem
             key={oxide}

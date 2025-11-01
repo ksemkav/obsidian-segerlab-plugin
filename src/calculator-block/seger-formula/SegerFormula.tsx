@@ -5,8 +5,9 @@ import {
   TemperatureZone,
 } from "../../obsidian-segerlab-dtos";
 import { FC } from "react";
+import styles from "./seger-formula.module.css";
 
-import { ViewSelector } from "./ViewSelector";
+import { ViewSelector } from "./view-selector/ViewSelector";
 import { useTranslation } from "react-i18next";
 
 type SegerFormulaProps = {
@@ -35,29 +36,6 @@ export const SegerFormula: FC<SegerFormulaProps> = (
         ? ">"
         : "";
 
-  const styles = {
-    oxideSumContainer: {
-      marginTop: "1.125rem",
-      display: "flex" as const,
-      flexDirection: "row" as const,
-      alignItems: "center" as const,
-      justifyContent: "space-between" as const,
-    },
-    oxideSum: {
-      fontWeight: 400,
-      fontSize: "1rem",
-      color: "#007AFF",
-    },
-    coefficients: {
-      marginTop: "0.25rem",
-      display: "flex" as const,
-      flexDirection: "row" as const,
-      alignItems: "center" as const,
-      justifyContent: "space-between" as const,
-      gap: "8px",
-    },
-  };
-
   return (
     <>
       <SegerFormulaView
@@ -65,35 +43,26 @@ export const SegerFormula: FC<SegerFormulaProps> = (
         viewType={viewType}
         isPrintView={isPrintView}
       />
-      <div style={styles.oxideSumContainer}>
+      <div className={styles.oxideSumContainer}>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ display: "flex", flexDirection: "row", gap: "8px" }}>
             <div>
-							<span style={styles.oxideSum}>{`${t("Oxide.R2O")}/${t(
-                "Oxide.RO",
-              )}: `}</span>
+              <span className={styles.oxideSum}>{`${t("Oxide.R2O")}/${t("Oxide.RO")}: `}</span>
               {calculation?.alcaliSum && calculation?.aEarthSum
-                ? `${calculation?.alcaliSum.toFixed(
-                  3,
-                )}/${calculation?.aEarthSum.toFixed(3)}`
+                ? `${calculation?.alcaliSum.toFixed(3)}/${calculation?.aEarthSum.toFixed(3)}`
                 : "—"}
             </div>
             <div>
-							<span style={styles.oxideSum}>{`${t(
-                "OxideRole.SiliconAluminumOxidesRatio",
-              )}: `}</span>
+              <span className={styles.oxideSum}>{`${t("OxideRole.SiliconAluminumOxidesRatio")}: `}</span>
               {calculation && calculation.siliconAluminumOxidesRatio !== 0
                 ? calculation?.siliconAluminumOxidesRatio
                 : "—"}
             </div>
           </div>
           {showMoreCoefficients && (
-            <div style={styles.coefficients}>
+            <div className={styles.coefficients}>
               <div>
-								<span style={styles.oxideSum}>{`${t(
-                  "RecipeCalculator.ThermalExpansion",
-                )}: `}</span>
-
+                <span className={styles.oxideSum}>{`${t("RecipeCalculator.ThermalExpansion")}: `}</span>
                 <>
                   {calculation?.molarThermalExpansion &&
                   calculation?.molecularMassThermalExpansion
@@ -102,10 +71,7 @@ export const SegerFormula: FC<SegerFormulaProps> = (
                 </>
               </div>
               <div>
-								<span style={styles.oxideSum}>{`${t(
-                  "RecipeCalculator.Fluxibility.Label",
-                )}: `}</span>
-
+                <span className={styles.oxideSum}>{`${t("RecipeCalculator.Fluxibility.Label")}: `}</span>
                 <>
                   {calculation?.calculatedFluxibility
                     ? `${fluxibilityTemperatureSign}` +
@@ -114,10 +80,7 @@ export const SegerFormula: FC<SegerFormulaProps> = (
                 </>
               </div>
               <div>
-								<span style={styles.oxideSum}>{`${t(
-                  "RecipeCalculator.AcidityRatio.Label",
-                )}: `}</span>
-
+                <span className={styles.oxideSum}>{`${t("RecipeCalculator.AcidityRatio.Label")}: `}</span>
                 <>
                   {calculation?.acidityRatio
                     ? `${calculation?.acidityRatio}`

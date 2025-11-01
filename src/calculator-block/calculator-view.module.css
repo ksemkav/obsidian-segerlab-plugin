@@ -1,0 +1,10 @@
+.calculatorViewContainer {
+	display: block;
+	min-width: 400px;
+	border: 1px solid var(--background-modifier-border);
+	padding: 1.5rem 1.5rem;
+	margin: 3px;
+	box-sizing: border-box;
+}
+
+

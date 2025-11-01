@@ -1,4 +1,13 @@
 {
+  "Welcome": {
+    "Title": "Hi!",
+    "Text1": "Here will be Stull chart with point of calculators from your notes.",
+    "Text2": "Let's just open some!"
+  },
+  "NoPoints": {
+    "Message": "No calculators — no points",
+    "Hint": "Embeded notes don't count!"
+  },
   "Error": {
     "Title": "Something is broken",
     "Description": "Try to copy the calculator again or <1>contact us</1>."

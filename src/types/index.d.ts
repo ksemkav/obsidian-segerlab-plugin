@@ -3,3 +3,8 @@ declare module "*.svg" {
   const SvgIcon: FC<SVGProps<SVGSVGElement>>;
   export default SvgIcon;
 }
+
+declare module '*.svg?raw' {
+  const content: string;
+  export default content;
+}

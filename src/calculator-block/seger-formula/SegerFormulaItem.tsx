@@ -1,6 +1,7 @@
 import { FormulaViewType } from "../../obsidian-segerlab-dtos";
 import { FC } from "react";
-import { useScopedTranslation } from "src/localization/useScopedTranslation";
+import { useScopedTranslation } from "../../localization/useScopedTranslation";
+import styles from "./seger-formula.module.css";
 
 type SegerFormulaItemProps = {
   oxide: string;
@@ -16,29 +17,10 @@ export const SegerFormulaItem: FC<SegerFormulaItemProps> = (
   }) => {
   const { t } = useScopedTranslation("Oxide");
 
-  const styles = {
-    segerFormulaItem: {
-      display: "flex" as const,
-      flexDirection: "row" as const,
-      flexWrap: "nowrap" as const,
-    },
-    segerFormulaItemOxide: {
-      flexBasis: "50%",
-      fontSize: "0.875rem",
-      lineHeight: "1rem",
-    },
-    segerFormulaItemValue: {
-      flexBasis: "50%",
-      fontSize: "0.875rem",
-      lineHeight: "1rem",
-      textAlign: "right" as const,
-    },
-  };
-
   return (
-    <div style={styles.segerFormulaItem}>
-      <div style={styles.segerFormulaItemOxide}>{t(oxide)}</div>
-      <div style={styles.segerFormulaItemValue}>
+    <div className={styles.segerFormulaItem}>
+      <div className={styles.segerFormulaItemOxide}>{t(oxide)}</div>
+      <div className={styles.segerFormulaItemValue}>
         {viewType === FormulaViewType.PercentsMolar
           ? `${value.toFixed(3)}%`
           : value.toFixed(3)}

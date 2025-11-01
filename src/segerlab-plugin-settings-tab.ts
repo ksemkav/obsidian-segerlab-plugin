@@ -1,5 +1,5 @@
 import { App, getLanguage, PluginSettingTab, Setting } from "obsidian";
-import SegerlabPlugin from "../main";
+import SegerlabPlugin from "./main";
 
 export class SegerlabPluginSettingsTab extends PluginSettingTab {
   plugin: SegerlabPlugin;

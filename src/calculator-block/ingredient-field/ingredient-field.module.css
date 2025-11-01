@@ -1,0 +1,37 @@
+.ingredientItem {
+	background-color: var(--background-primary-alt);
+	padding: 0.4rem 0.75rem;
+	text-align: left;
+	border: 1px solid var(--background-modifier-border);
+  border-radius: 0;
+}
+
+.noBorder {
+	border: none;
+	background-color: transparent;
+}
+
+.alignTextCenter {
+	text-align: center;
+}
+
+.alignTextRight {
+	text-align: right;
+}
+
+.horizontalDivider {
+	border-bottom: 1px solid var(--text-accent);
+}
+
+.additionsTitle {
+	font-size: 0.625rem;
+	line-height: 1rem;
+	color: var(--text-accent);
+	letter-spacing: 0.1em;
+}
+
+.additionsIcon {
+	width: 0.7rem;
+	height: 0.7rem;
+	color: var(--text-accent);
+}

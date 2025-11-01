@@ -1,27 +1,23 @@
-import { ObsidianIngredientFieldV1 } from "../obsidian-segerlab-dtos";
+import { ObsidianIngredientFieldV1 } from "../../obsidian-segerlab-dtos";
 import { useTranslation } from "react-i18next";
-import AttachmentIcon from "../assets/icons/attachment.svg";
+import AttachmentIcon from "../../assets/icons/attachment.svg";
+import styles from "./ingredient-field.module.css";
+import clsx from "clsx";
+import { Switch } from "./switch/switch";
 
 interface ItemProps {
-  textAlign?: "start" | "center" | "end" | "left" | "right" | "justify";
+  textAlign?: "center" | "right";
   showBorder?: boolean;
 }
 
 const Item = (
   {
     children,
-    textAlign = "start",
+    textAlign = undefined,
     showBorder = true,
   }: ItemProps & { children: React.ReactNode }) => (
   <div
-    style={{
-      backgroundColor: "#fff",
-      padding: "0.4rem 0.75rem",
-      textAlign: textAlign,
-      border: showBorder ? "1px solid rgba(0, 0, 0, 0.1)" : "none",
-      borderRadius: 0,
-    }}
-  >
+    className={clsx(styles.ingredientItem, { [styles.noBorder]: !showBorder }, { [styles.alignTextCenter]: textAlign === "center" }, { [styles.alignTextRight]: textAlign === "right" })}>
     {children}
   </div>
 );
@@ -44,10 +40,10 @@ export const IngredientField = ({ name, value }: ObsidianIngredientFieldV1) => {
     <>
       <div style={flexContainerStyle}>
         <div style={flexIngredientNameStyle}>
-          <Item textAlign="left">{name}</Item>
+          <Item>{name}</Item>
         </div>
         <div style={flexIngredientAmountStyle}>
-          <Item textAlign="center">
+          <Item textAlign={"center"}>
             {
               parseFloat(
                 value.toFixed(3),
@@ -60,9 +56,7 @@ export const IngredientField = ({ name, value }: ObsidianIngredientFieldV1) => {
   );
 };
 
-const HorizontalDivider = () => (
-  <div style={{ borderBottom: "1px solid #007aff" }} />
-);
+const HorizontalDivider = () => (<div className={styles.horizontalDivider} />);
 
 export interface IngredientsProps {
   ingredients: ObsidianIngredientFieldV1[];
@@ -133,19 +127,12 @@ export const Ingredients = (
               gap: "4px",
             }}
           >
-            <AttachmentIcon style={{ width: "12px", height: "12px" }} />
-            <div
-              style={{
-                fontSize: "0.625rem",
-                lineHeight: "1rem",
-                color: "#007aff",
-                letterSpacing: "0.1em",
-              }}
-            >
+            <AttachmentIcon className={styles.additionsIcon} />
+            <div className={styles.additionsTitle}>
               {t("RecipeCalculator.Additions")}
             </div>
           </div>
-          <SwitchDisplay checked={includeAdditionsIntoCalculations} />
+          <Switch checked={includeAdditionsIntoCalculations} />
         </div>
         <HorizontalDivider />
       </div>)}
@@ -160,31 +147,4 @@ export const Ingredients = (
   );
 };
 
-const SwitchDisplay = ({ checked = false }: { checked?: boolean }) => {
-  const trackStyle: React.CSSProperties = {
-    width: "26px",
-    height: "10px",
-    backgroundColor: checked ? "rgb(230, 239, 252)" : "rgb(224, 224, 224)",
-    borderRadius: "7px",
-    position: "relative",
-    display: "inline-block",
-    margin: "0 8px",
-  };
 
-  const thumbStyle: React.CSSProperties = {
-    width: "16px",
-    height: "16px",
-    borderRadius: "50%",
-    position: "absolute",
-    top: "-3px",
-    left: checked ? "13px" : "-3px",
-    backgroundColor: checked ? "rgb(175, 206, 248)" : "rgb(245, 245, 245)",
-    boxSizing: "border-box",
-  };
-
-  return (
-    <div style={trackStyle}>
-      <div style={thumbStyle} />
-    </div>
-  );
-};
