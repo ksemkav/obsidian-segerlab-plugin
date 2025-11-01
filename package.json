@@ -1,6 +1,6 @@
 {
 	"name": "obsidian-segerlab-plugin",
-	"version": "1.0.0",
+	"version": "0.0.2",
 	"description": "Renders calculator views within Obsidian notes from JSON data copied from the Segerlab app.",
 	"main": "main.js",
 	"scripts": {
