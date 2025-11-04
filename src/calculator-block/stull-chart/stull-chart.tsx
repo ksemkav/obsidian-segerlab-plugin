@@ -1,7 +1,6 @@
 import React from "react";
 import { Group } from "@visx/group";
 import { GridColumns, GridRows } from "@visx/grid";
-import { scaleLinear } from "d3-scale";
 import { AxisBottom, AxisLeft } from "@visx/axis";
 import { AreaClosed, Circle } from "@visx/shape";
 import { StullChartPointDto } from "../../obsidian-segerlab-dtos";
@@ -11,6 +10,7 @@ import styles from "./stull-chart.module.css";
 import clsx from "clsx";
 import { localPoint } from "@visx/event";
 import { crazingData, mattesData, semiMattesData, underfiredData, unfusedData } from "./areas-constants";
+import { scaleLinear } from "@visx/scale";
 
 // Maximum and minimum values of Al2O3 and SiO2 that can be displayed on the Stull chart.
 const getMaxSiO2Value = (minimized?: boolean) => (minimized ? 6.6 : 7.2);
@@ -91,12 +91,14 @@ export const StullChart = (
   const xMax = width - margin.left - margin.right;
   const yMax = height - margin.top - margin.bottom;
 
-  const yScale = scaleLinear()
-    .domain([minAl2O3Value, getMaxAl2O3Value(minimized)])
-    .range([yMax, 0]);
-  const xScale = scaleLinear()
-    .domain([minSiO2Value, getMaxSiO2Value(minimized)])
-    .range([0, xMax]);
+  const yScale = scaleLinear({
+    domain: [minAl2O3Value, getMaxAl2O3Value(minimized)],
+    range: [yMax, 0],
+  });
+  const xScale = scaleLinear({
+    domain: [minSiO2Value, getMaxSiO2Value(minimized)],
+    range: [0, xMax],
+  });
 
   const handleMouseOver = (point: StullChartCalculatorPoint) => (event: React.MouseEvent) => {
     const svgElement = (event.target as SVGElement).ownerSVGElement;
@@ -127,12 +129,14 @@ export const StullChart = (
         <rect className={styles.stullChartContainer} x={0} y={0} width={width} height={height} />
         <Group left={margin.left} top={margin.top}>
           {!minimized && (<>
-            <GridRows stroke={"var(--background-modifier-border)"} scale={yScale} width={xMax} height={yMax} tickValues={yTicks} />
-            <GridColumns stroke={"var(--background-modifier-border)"} scale={xScale} width={xMax} height={yMax} tickValues={xTicks} />
+            <GridRows stroke={"var(--background-modifier-border)"} scale={yScale} width={xMax} height={yMax}
+                      tickValues={yTicks} />
+            <GridColumns stroke={"var(--background-modifier-border)"} scale={xScale} width={xMax} height={yMax}
+                         tickValues={xTicks} />
             <AxisBottom top={yMax - 5} scale={xScale} hideTicks hideAxisLine tickValues={xTicks}
-                        tickLabelProps={{ className: styles.stullChartTickLabels}} />
+                        tickLabelProps={{ className: styles.stullChartTickLabels }} />
             <AxisLeft left={30} scale={yScale} hideTicks hideAxisLine numTicks={9} tickValues={yTicks}
-                      tickLabelProps={{ className: styles.stullChartTickLabels}} />
+                      tickLabelProps={{ className: styles.stullChartTickLabels }} />
           </>)}
           <AreaClosed
             data={crazingData}
@@ -215,7 +219,7 @@ export const StullChart = (
         className={clsx(styles.stullPointTooltip, { [styles.stullPointTooltipHidden]: !tooltipOpen })}
         unstyled
         applyPositionStyle>
-        <div style={{display: 'flex', flexDirection: 'column'}}>
+        <div style={{ display: "flex", flexDirection: "column" }}>
           {!minimized && (<div style={{ fontWeight: 600 }}>{(tooltipData as StullChartCalculatorPoint)?.name}</div>)}
           <div>{`${(tooltipData as StullChartCalculatorPoint)?.siO2Value?.toFixed(3)} SiO₂, ${(tooltipData as StullChartPointDto)?.al2O3Value?.toFixed(3)} Al₂O₃`}</div>
         </div>

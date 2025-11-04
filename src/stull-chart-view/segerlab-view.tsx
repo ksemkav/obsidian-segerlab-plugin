@@ -26,7 +26,7 @@ export class SegerlabView extends ItemView {
     return "segerlab-icon";
   }
 
-  async onOpen() {
+  onOpen() {
     this.root = createRoot(this.contentEl);
 
     const render = debounce((displayText: string, document: string) => {
@@ -75,9 +75,11 @@ export class SegerlabView extends ItemView {
     }
 
     this.root.render(<WelcomeMessage />);
+    return Promise.resolve();
   }
 
-  async onClose() {
+  onClose() {
     this.root?.unmount();
+    return Promise.resolve();
   }
 }

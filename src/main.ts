@@ -31,8 +31,8 @@ export default class SegerlabPlugin extends Plugin {
 
     // This creates an icon in the left ribbon.
     addIcon("segerlab-icon", renderToString(React.createElement(SegerlabLogo)));
-    this.addRibbonIcon("segerlab-icon", "Segerlab", (_evt: MouseEvent) => {
-      this.activateView();
+    this.addRibbonIcon("segerlab-icon", "Segerlab", async (_evt: MouseEvent) => {
+      await this.activateView();
     });
     this.registerView(
       VIEW_TYPE_SEGERLAB,
@@ -66,7 +66,7 @@ export default class SegerlabPlugin extends Plugin {
 
     // "Reveal" the leaf in case it is in a collapsed sidebar
     if(leaf != null) {
-      workspace.revealLeaf(leaf);
+      await workspace.revealLeaf(leaf);
     }
   }
 
