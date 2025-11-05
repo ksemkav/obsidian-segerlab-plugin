@@ -184,7 +184,7 @@ export const StullChart = (
                     className={styles.stullPoint}
                     left={xScale(adjustedPoint.siO2Value)}
                     top={yScale(adjustedPoint.al2O3Value)}
-                    r={5}
+                    r={"0.31em"}
                     fill="#ffffff"
                     transform={rotation}
                     cursor={"pointer"}
@@ -199,7 +199,7 @@ export const StullChart = (
                     className={styles.stullPoint}
                     cx={xScale(point.siO2Value)}
                     cy={yScale(point.al2O3Value)}
-                    r={5}
+                    r={"0.31em"}
                     onMouseLeave={hideTooltip}
                     onMouseOver={handleMouseOver(point)}
                   />

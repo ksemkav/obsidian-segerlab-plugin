@@ -1,5 +1,5 @@
 .oxideSumContainer {
-	margin-top: 1.125rem;
+	margin-top: 1.125em;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -8,17 +8,17 @@
 
 .oxideSum {
 	font-weight: 400;
-	font-size: 1rem;
+	font-size: 1em;
 	color: var(--text-accent);
 }
 
 .coefficients {
-	margin-top: 0.25rem;
+	margin-top: 0.25em;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
-	gap: 8px;
+	gap: 0.5em;
 }
 
 .segerFormulaItem {
@@ -29,14 +29,14 @@
 
 .segerFormulaItemOxide {
 	flex-basis: 50%;
-	font-size: 0.875rem;
-	line-height: 1rem;
+	font-size: 0.875em;
+	line-height: 1em;
 }
 
 .segerFormulaItemValue {
 	flex-basis: 50%;
-	font-size: 0.875rem;
-	line-height: 1rem;
+	font-size: 0.875em;
+	line-height: 1em;
 	text-align: right;
 }
 
@@ -48,9 +48,9 @@
 .segerFormulaViewHeaderStyle {
 	align-self: center;
 	font-weight: 400;
-	font-size: 10px;
-	line-height: 1rem;
-	padding-bottom: 1rem;
+	font-size: 0.625em;
+	line-height: 1em;
+	padding-bottom: 1em;
 	letter-spacing: 0.1em;
 	color: var(--text-accent);
 }
@@ -58,7 +58,7 @@
 .segerFormulaContainer {
 	display: flex;
 	flex-direction: row;
-	gap: 8px;
+	gap: 0.5em;
 }
 
 .segerFormulaColumnContainer {

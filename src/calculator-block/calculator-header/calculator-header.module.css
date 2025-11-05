@@ -1,5 +1,5 @@
 .logo {
-	height: 2rem;
+	height: max(2.5em, 1rem);
 	color: #007AFF;
 	text-decoration: none;
 	cursor: pointer;

@@ -12,9 +12,9 @@
 .stullPointTooltip {
 	background-color: var(--background-secondary-alt);
 	color: var(--text-normal);
-	padding: .3rem .5rem;
-	border-radius: 3px;
-	font-size: 0.8rem;
+	padding: .3em .5em;
+	border-radius: 0.1875em;
+	font-size: 0.8em;
 	line-height: 1em;
 	pointer-events: none;
 	opacity: 1;

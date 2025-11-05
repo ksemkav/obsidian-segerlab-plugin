@@ -24,7 +24,7 @@ const Item = (
 
 const flexContainerStyle: React.CSSProperties = {
   display: "flex",
-  gap: "8px",
+  gap: "0.5em",
 };
 
 const flexIngredientNameStyle: React.CSSProperties = {
@@ -32,7 +32,7 @@ const flexIngredientNameStyle: React.CSSProperties = {
 };
 
 const flexIngredientAmountStyle: React.CSSProperties = {
-  flex: `0 0 4.5rem`,
+  flex: `0 0 4.5em`,
 };
 
 export const IngredientField = ({ name, value }: ObsidianIngredientFieldV1) => {
@@ -87,8 +87,8 @@ export const Ingredients = (
       style={{
         display: "flex",
         flexDirection: "column",
-        gap: "8px",
-        marginTop: "1rem",
+        gap: "0.5em",
+        marginTop: "1em",
       }}
     >
       {mainInredients.map((ingredient) => (
@@ -111,13 +111,13 @@ export const Ingredients = (
         </div>
       </div>
 
-      {additionalIngredients.length > 0 && (<div style={{ marginBottom: "0.5rem" }}>
+      {additionalIngredients.length > 0 && (<div style={{ marginBottom: "0.5em" }}>
         <div
           style={{
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
-            marginBottom: "0.5rem",
+            marginBottom: "0.5em",
           }}
         >
           <div

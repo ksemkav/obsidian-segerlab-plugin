@@ -28,7 +28,7 @@ export const Calculator = (
   return (
     <ErrorBoundary>
       <div className={styles.calculatorViewContainer}>
-        <div style={{ display: "flex", flexDirection: "column" }}>
+        <div className={styles.calculatorView}>
           <CalculatorHeader
             title={name}
             recipeId={recipeId}

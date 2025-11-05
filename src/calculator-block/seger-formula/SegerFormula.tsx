@@ -45,7 +45,7 @@ export const SegerFormula: FC<SegerFormulaProps> = (
       />
       <div className={styles.oxideSumContainer}>
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ display: "flex", flexDirection: "row", gap: "8px" }}>
+          <div style={{ display: "flex", flexDirection: "row", gap: "0.5em" }}>
             <div>
               <span className={styles.oxideSum}>{`${t("Oxide.R2O")}/${t("Oxide.RO")}: `}</span>
               {calculation?.alcaliSum && calculation?.aEarthSum

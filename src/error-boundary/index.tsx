@@ -39,21 +39,21 @@ export const ErrorMessage = ({message}: {message?: string}) => (<div
       display: "block",
       minWidth: "400px",
       border: "1px solid var(--background-modifier-border)",
-      padding: "1.5rem",
+      padding: "1.5em",
       margin: "3px",
       boxSizing: "border-box",
     }}
   >
     <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
       <Kafootka style={{
-        width: "10rem",
-        height: "10rem",
-        minWidth: "10rem",
-        minHeight: "10rem",
-        marginRight: "2rem",
+        width: "10em",
+        height: "10em",
+        minWidth: "10em",
+        minHeight: "10em",
+        marginRight: "2em",
       }} />
-      <div style={{ display: "flex", flexDirection: "column", padding: "1rem", gap: "1rem" }}>
-        <div style={{ fontWeight: 600, marginBottom: "1rem" }}>{i18next.t("Error.Title")}</div>
+      <div style={{ display: "flex", flexDirection: "column", padding: "1em", gap: "1em" }}>
+        <div style={{ fontWeight: 600, marginBottom: "1em" }}>{i18next.t("Error.Title")}</div>
         <div>
           <Trans i18nKey={"Error.Description"} style={{ whiteSpace: "pre-line" }}>
             Попробуйте ещё раз скопировать калькулятор или <a href={"https://t.me/glazprosvet/34074"} style={{

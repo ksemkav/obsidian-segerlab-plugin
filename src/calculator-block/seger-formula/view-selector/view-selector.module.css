@@ -6,12 +6,12 @@
 }
 
 .viewSelectorOption {
-	width: 43px;
-	height: 30px;
+	width: 3em;
+	height: 2.3em;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-size: 0.875rem;
+	font-size: 0.875em;
 	font-weight: 500;
 	cursor: default;
 	color: var(--text-faint);

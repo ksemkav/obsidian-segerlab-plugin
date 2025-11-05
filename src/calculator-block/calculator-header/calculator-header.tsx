@@ -3,6 +3,7 @@ import { StullChart } from "../stull-chart/stull-chart";
 import { localFormat } from "../../localization/date-helpers";
 import styles from "./calculator-header.module.css";
 import SegerIcon from "../../assets/icons/seger.svg";
+import { useParentSize } from "@visx/responsive";
 
 interface CalculatorHeaderProps {
   title: string;
@@ -17,62 +18,68 @@ export const CalculatorHeader = (
     versionCreatedAt,
     recipeId,
     stullChartPoint,
-  }: CalculatorHeaderProps) => (
-  <div style={{
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    marginBottom: "1.5rem",
-    alignItems: "top",
-  }}>
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "row",
-      }}
-    >
-      <StullChart
-        minimized
-        width={125}
-        height={125}
-        points={[{
-          al2O3Value: stullChartPoint.al2O3Value,
-          siO2Value: stullChartPoint.siO2Value,
-          id: 0,
-          name: title,
-        }]} />
+  }: CalculatorHeaderProps) => {
+  const { parentRef, width, height } = useParentSize({ debounceTime: 50 });
+
+  return (
+    <div style={{
+      display: "flex",
+      flexDirection: "row",
+      justifyContent: "space-between",
+      marginBottom: "1.5em",
+      alignItems: "top",
+    }}>
       <div
         style={{
           display: "flex",
-          flexDirection: "column",
-          marginLeft: "2rem",
+          flexDirection: "row",
         }}
       >
-        <div
-          style={{
-            fontWeight: 600,
-            fontSize: "1.2rem",
-            lineHeight: "1.2rem",
-            fontFamily: "system-ui",
-          }}
-        >
-          {title}
+        <div ref={parentRef} style={{ width: "7.8em", height: "7.8em" }}>
+          <StullChart
+            minimized
+            width={width}
+            height={height}
+            points={[{
+              al2O3Value: stullChartPoint.al2O3Value,
+              siO2Value: stullChartPoint.siO2Value,
+              id: 0,
+              name: title,
+            }]} />
         </div>
         <div
           style={{
-            color: "var(--text-faint)",
-            fontSize: "0.9rem",
-            lineHeight: "2rem",
-            fontFamily: "system-ui",
+            display: "flex",
+            flexDirection: "column",
+            marginLeft: "2em",
           }}
         >
-          {localFormat(versionCreatedAt, "Pp")}
+          <div
+            style={{
+              fontWeight: 600,
+              fontSize: "1.2em",
+              lineHeight: "1.2em",
+              fontFamily: "system-ui",
+            }}
+          >
+            {title}
+          </div>
+          <div
+            style={{
+              color: "var(--text-faint)",
+              fontSize: "0.9em",
+              lineHeight: "2em",
+              fontFamily: "system-ui",
+            }}
+          >
+            {localFormat(versionCreatedAt, "Pp")}
+          </div>
         </div>
       </div>
+      <a href={`https://segerlab.ru/recipe/${recipeId}/calculations`} className={styles.logo}>
+        <SegerIcon />
+      </a>
     </div>
-    <a href={`https://segerlab.ru/recipe/${recipeId}/calculations`} className={styles.logo}>
-      <SegerIcon />
-    </a>
-  </div>
 
-);
+  );
+};

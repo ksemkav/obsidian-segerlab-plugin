@@ -27,11 +27,11 @@ export const StullChartView = ({ points, header }: { points: StullChartCalculato
           alignItems: "center",
         }}>
           <div style={{ display: "flex", flexDirection: "column" }}>
-            <div style={{ color: "var(--text-normal)", fontSize: "1.2rem", fontWeight: 500 }}>{t("NoPoints.Message")}</div>
+            <div style={{ color: "var(--text-normal)", fontSize: "1.2em", fontWeight: 500 }}>{t("NoPoints.Message")}</div>
             <div
-              style={{ marginTop: "0.5rem", color: "var(--text-faint)", fontSize: "0.8rem" }}>{t("NoPoints.Hint")}</div>
+              style={{ marginTop: "0.5em", color: "var(--text-faint)", fontSize: "0.8em" }}>{t("NoPoints.Hint")}</div>
           </div>
-          <Atata style={{ width: "8rem" }} />
+          <Atata style={{ width: "8em" }} />
         </div>
       )}
     </div>

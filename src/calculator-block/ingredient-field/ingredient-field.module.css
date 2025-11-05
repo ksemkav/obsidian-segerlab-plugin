@@ -1,6 +1,6 @@
 .ingredientItem {
 	background-color: var(--background-primary-alt);
-	padding: 0.4rem 0.75rem;
+	padding: 0.4em 0.75em;
 	text-align: left;
 	border: 1px solid var(--background-modifier-border);
   border-radius: 0;
@@ -24,14 +24,14 @@
 }
 
 .additionsTitle {
-	font-size: 0.625rem;
-	line-height: 1rem;
+	font-size: 0.625em;
+	line-height: 1em;
 	color: var(--text-accent);
 	letter-spacing: 0.1em;
 }
 
 .additionsIcon {
-	width: 0.7rem;
-	height: 0.7rem;
+	width: 0.7em;
+	height: 0.7em;
 	color: var(--text-accent);
 }
