@@ -1,7 +1,7 @@
 import { addIcon, getLanguage, Plugin, WorkspaceLeaf } from "obsidian";
 import { processCalculatorBlock } from "./calculator-block";
 import { initializeLocalization } from "./localization/localization";
-import { SegerlabPluginSettingsTab } from "./segerlab-plugin-settings-tab";
+import SegerlabPluginSettingsTab from "./settings-tab";
 import { SegerlabView, VIEW_TYPE_SEGERLAB } from "./stull-chart-view/segerlab-view";
 import SegerlabLogo from "./assets/icons/seger.svg";
 import { renderToString } from "react-dom/server";
@@ -9,10 +9,12 @@ import React from "react";
 
 interface SegerlabPluginSettings {
   showMoreCoefficients: boolean;
+  recipeSearchTemplate: string;
 }
 
 const DEFAULT_SETTINGS: SegerlabPluginSettings = {
   showMoreCoefficients: false,
+  recipeSearchTemplate: `/\\"recipeId\\":\\s*{{recipeId}}/`,
 };
 
 export default class SegerlabPlugin extends Plugin {
@@ -29,7 +31,6 @@ export default class SegerlabPlugin extends Plugin {
     );
     this.addSettingTab(new SegerlabPluginSettingsTab(this.app, this));
 
-    // This creates an icon in the left ribbon.
     addIcon("segerlab-icon", renderToString(React.createElement(SegerlabLogo)));
     this.addRibbonIcon("segerlab-icon", "Segerlab", async (_evt: MouseEvent) => {
       await this.activateView();
@@ -38,6 +39,19 @@ export default class SegerlabPlugin extends Plugin {
       VIEW_TYPE_SEGERLAB,
       (leaf) => new SegerlabView(leaf),
     );
+
+    this.registerObsidianProtocolHandler("segerlab-search-recipe", async (params) => {
+      const recipeId = params.recipeId;
+      const recipeName = params.recipeName;
+      if (!recipeId || !recipeName) return;
+
+      const searchQuery = this.settings.recipeSearchTemplate
+        .replace('{{recipeId}}', recipeId)
+        .replace('{{recipeName}}', recipeName);
+      const searchView = this.app.workspace.getLeavesOfType("search")[0] ?? this.app.workspace.getLeaf(true);
+      await searchView.setViewState({ type: "search", state: { query: searchQuery } });
+      await this.app.workspace.revealLeaf(searchView);
+    });
   }
 
   async loadSettings() {
@@ -65,10 +79,11 @@ export default class SegerlabPlugin extends Plugin {
     }
 
     // "Reveal" the leaf in case it is in a collapsed sidebar
-    if(leaf != null) {
+    if (leaf != null) {
       await workspace.revealLeaf(leaf);
     }
   }
 
-  onunload() {}
+  onunload() {
+  }
 }

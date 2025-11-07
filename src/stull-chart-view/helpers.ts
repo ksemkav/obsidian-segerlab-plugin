@@ -4,7 +4,7 @@ export function parseObsidianCalculatorViews(markdown: string): ObsidianCalculat
   const results: ObsidianCalculatorViewV1[] = [];
 
   // Regex to match segerlab-calculator code blocks with optional inline JSON or multiline content
-  const codeBlockRegex = /```segerlab-calculator\s*([^`]*?)```/gs;
+  const codeBlockRegex = /[`~]{3}segerlab-calculator\s*([^`]*?)[`~]{3}/gs;
 
   let match;
   while ((match = codeBlockRegex.exec(markdown)) !== null) {

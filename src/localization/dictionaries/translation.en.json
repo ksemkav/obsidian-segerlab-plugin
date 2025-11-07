@@ -121,6 +121,19 @@
     "Loi": "LOI"
   },
   "Settings": {
-    "ShowMoreCoefficients": "Show more coefficients in calculator"
+    "Title": "Segerlab plugin settings",
+    "ShowMoreCoefficients": {
+      "Title": "Show more coefficients in calculator",
+      "Description": "Restart Obsidian after changing"
+    },
+    "RecipeSearchTemplate": {
+      "Title": "Recipe search template",
+      "Description": "Template for a search query for notes from a Segerlab recipe.\n{{recipeId}} and {{recipeName}} are used to substitute the recipe ID or name values into the search query.\n\nBelow are some example queries, copy any you like into the field on the right or write your own template.",
+      "Options": {
+        "Option1": "Find all notes with calculators from the recipe",
+        "Option2": "Find all notes mentioning the recipe name",
+        "Option3": "Find all notes containing a property named \"segerlab-recipe-id\" with the recipe ID as its value"
+      }
+    }
   }
 }
