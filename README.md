@@ -11,6 +11,8 @@ This plugin brings calculators views from Segerlab app into your Obsidian notes.
 - **Calculator Rendering**: Transforms markdown code blocks with language `segerlab-calculation` into interactive calculator views
 - **Extended Coefficients**: Optional setting to display additional coefficients in the calculator interface
 - **Multi-language Support**: Interface available in English and Russian, automatically adapts to your Obsidian language setting
+- **Stull Chart**: Panel displaying Stull chart with all calculator points found in an opened note.
+- **Customizable Notes Search**: Configure a search query to quickly find notes containing calculators using the search button in Segerlab.
 
 ## Installation
 
@@ -28,6 +30,11 @@ To see the Obsidian button in calculators, enable the corresponding setting in t
 2. Extract the files to your vault's `.obsidian/plugins/segerlab/` directory
 3. Enable the plugin in Obsidian settings
 
+### Settings of the plugin
+
+- **Show more coefficients in calculator**: Enable this option to display additional calculated coefficients in the calculator view.
+- **Search template setting**: Customize your search query template to find recipes or calculators in your notes. There are some examples that can be copied and used.
+
 ## Usage
 
 1. Open some recipe in Segerlab and find a calculator you want to see in your Obsidian note.
@@ -44,7 +51,7 @@ To see the Obsidian button in calculators, enable the corresponding setting in t
 #### Example of the code block content copied from Segerlab:
 
 ````markdown
-```segerlab-calculator
+~~~segerlab-calculator
 {
   "recipeId": 8345,
   "calculationId": 36955,
@@ -121,5 +128,5 @@ To see the Obsidian button in calculators, enable the corresponding setting in t
     "acidityRatio": 0.863
   }
 }
-```
+~~~
 ````

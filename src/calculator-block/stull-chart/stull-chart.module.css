@@ -21,7 +21,7 @@
 	transition: opacity 0.3s ease-in-out;
 	visibility: visible;
 	display: block;
-	border: thin solid var(--text-normal);
+	border: thin solid var(--background-modifier-border);
 }
 
 .stullPointTooltipHidden {

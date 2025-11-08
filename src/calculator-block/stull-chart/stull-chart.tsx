@@ -24,7 +24,7 @@ const minX = 0.75;
 const maxY = (minimized?: boolean) => (minimized ? 0.86 : 0.98);
 const minY = 0.02;
 
-const calculatePointCoordinate = (p: StullChartPointDto, minimized = true): StullChartPointDto => ({
+const calculatePointCoordinate = (p: StullChartPointDto, minimized: boolean): StullChartPointDto => ({
   siO2Value: Math.min(Math.max(p.siO2Value, minX), maxX(minimized)),
   al2O3Value: Math.min(Math.max(p.al2O3Value, minY), maxY(minimized)),
 });
@@ -33,7 +33,7 @@ const calculatePointCoordinate = (p: StullChartPointDto, minimized = true): Stul
  * Defines the rotation of triangle symbol in case when point is outside the chart.
  * When null is returned, normal circle symbol is rendered.
  */
-const defineSymbol = (point: StullChartPointDto, minimized = true) => {
+const defineSymbol = (point: StullChartPointDto, minimized: boolean) => {
   if (point && point.al2O3Value > getMaxAl2O3Value(minimized)) {
     return "rotate(0)";
   }
@@ -68,7 +68,7 @@ const minimizedSize = { defaultWidth: 150, defaultHeight: 150, margin: { top: 0,
 
 export const StullChart = (
   {
-    points, minimized, width: widthProp, height: heightProp,
+    points, minimized = false, width: widthProp, height: heightProp,
   }: StullChartProps) => {
   const {
     tooltipData,
@@ -221,7 +221,10 @@ export const StullChart = (
         applyPositionStyle>
         <div style={{ display: "flex", flexDirection: "column" }}>
           {!minimized && (<div style={{ fontWeight: 600 }}>{(tooltipData as StullChartCalculatorPoint)?.name}</div>)}
-          <div>{`${(tooltipData as StullChartCalculatorPoint)?.siO2Value?.toFixed(3)} SiO₂, ${(tooltipData as StullChartPointDto)?.al2O3Value?.toFixed(3)} Al₂O₃`}</div>
+          <div>
+            {`${(tooltipData as StullChartCalculatorPoint)?.siO2Value?.toFixed(3)} SiO₂,`
+              +` ${(tooltipData as StullChartPointDto)?.al2O3Value?.toFixed(3)} Al₂O₃`}
+          </div>
         </div>
       </TooltipInPortal>
     </div>

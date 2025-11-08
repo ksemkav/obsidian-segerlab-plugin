@@ -31,9 +31,9 @@ export default class SegerlabPluginSettingsTab extends PluginSettingTab {
 
     /** Recipe search template setting */
     const recipeSearchTemplateSettings = createRoot(new Setting(containerEl).settingEl);
-    const handleValueChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleValueChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       this.plugin.settings.recipeSearchTemplate = event.target.value.trim();
-      await this.plugin.saveSettings();
+      this.plugin.saveSettings();
     };
     recipeSearchTemplateSettings.render(
       <RecipeSearchTemplateSetting

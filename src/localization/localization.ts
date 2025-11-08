@@ -11,8 +11,8 @@ import { setLocale } from "./date-helpers";
 import * as russianTranslations from "./dictionaries/translation.ru.json";
 import * as englishTranslations from "./dictionaries/translation.en.json";
 
-export function initializeLocalization(selectedLanguage: string) {
-  return i18n
+export async function initializeLocalization(selectedLanguage: string) {
+  await i18n
     .use(initReactI18next)
     .init({
       fallbackLng,
@@ -20,7 +20,6 @@ export function initializeLocalization(selectedLanguage: string) {
       load: "languageOnly",
       preload: [fallbackLng, "en"],
       lowerCaseLng: true,
-      initImmediate: true,
       debug: false,
       supportedLngs: languages,
       interpolation: {
@@ -34,10 +33,8 @@ export function initializeLocalization(selectedLanguage: string) {
           [defaultNS]: englishTranslations,
         },
       },
-    })
-    .then(() => {
-      return selectedLanguage === Language.ru ? changeLanguage(Language.ru) : changeLanguage(Language.en);
     });
+  return await (selectedLanguage === Language.ru.toString() ? changeLanguage(Language.ru) : changeLanguage(Language.en));
 }
 
 export async function changeLanguage(language: Language) {
@@ -46,7 +43,7 @@ export async function changeLanguage(language: Language) {
   setLocale(getDefaultLocaleForLanguage(language));
 
   // change language as a last step because it will cause rerendering
-  if (i18n.language !== language) {
+  if (i18n.language !== language.toString()) {
     await i18n.changeLanguage(language);
   }
 }
