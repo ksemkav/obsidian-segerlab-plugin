@@ -1,7 +1,7 @@
 {
 	"id": "segerlab",
 	"name": "Segerlab",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"minAppVersion": "0.15.0",
 	"description": "Renders calculator views within notes from JSON data copied from the Segerlab app.",
 	"author": "Semyon Kononchuk",
