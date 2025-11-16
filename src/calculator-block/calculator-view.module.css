@@ -1,8 +1,7 @@
 .calculatorViewContainer {
 	display: block;
-	min-width: 15rem;
+	min-width: 12.5rem;
 	border: 1px solid var(--background-modifier-border);
-	padding: 1.5em 1.5em;
 	margin: 0.2em;
 	box-sizing: border-box;
 	container-type: inline-size;
@@ -13,8 +12,8 @@
 .calculatorView {
 	display: flex;
 	flex-direction: column;
-
 	font-size: clamp(0.5rem, 4cqw, 1rem);
+	padding: clamp(1em, 4cqw, 1.5em);
 }
 
 
