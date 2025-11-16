@@ -123,6 +123,8 @@ export const StullChart = (
   const xTicks = calcTicks(minSiO2Value, 0.6, getMaxSiO2Value(minimized));
   const yTicks = calcTicks(minAl2O3Value, 0.1, getMaxAl2O3Value(minimized));
 
+  const markerSize = minimized ? "0.5em" : "0.35em";
+
   return (
     <div className={clsx(styles.stullChartWrapper)}>
       <svg width={width} height={height} ref={containerRef}>
@@ -184,7 +186,7 @@ export const StullChart = (
                     className={styles.stullPoint}
                     left={xScale(adjustedPoint.siO2Value)}
                     top={yScale(adjustedPoint.al2O3Value)}
-                    r={"0.31em"}
+                    r={markerSize}
                     fill="#ffffff"
                     transform={rotation}
                     cursor={"pointer"}
@@ -199,7 +201,7 @@ export const StullChart = (
                     className={styles.stullPoint}
                     cx={xScale(point.siO2Value)}
                     cy={yScale(point.al2O3Value)}
-                    r={"0.31em"}
+                    r={markerSize}
                     onMouseLeave={hideTooltip}
                     onMouseOver={handleMouseOver(point)}
                   />
