@@ -1,5 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import styles from "./recipe-search-template.module.css";
 
 export const RecipeSearchTemplateSetting = ({ defaultValue, onChange }: {
   defaultValue: string,
@@ -13,28 +14,17 @@ export const RecipeSearchTemplateSetting = ({ defaultValue, onChange }: {
     { name: t("Settings.RecipeSearchTemplate.Options.Option3"), value: "[\"segerlab-recipe-id\":{{recipeId}}]" },
   ];
 
-  return <div style={{
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    font: "var(--font-interface-theme)",
-  }}>
-    <div style={{ display: "flex", flexDirection: "column" }}>
+  return <div className={styles.container}>
+    <div className={styles.contentSection}>
       <span className="setting-item-name">{t("Settings.RecipeSearchTemplate.Title")}</span>
-      <div className="setting-item-description" style={{ whiteSpace: "pre-line", marginBottom: "1em" }}>
+      <div className={`setting-item-description ${styles.description}`}>
         {t("Settings.RecipeSearchTemplate.Description")}
       </div>
       <table className="setting-item-description">
         <tbody>
         {recipeSearchTemplates.map((template, index) => (
-          <tr key={index} style={{ margin: "0.5em 0.5em 0 0" }}>
-            <td style={{
-              backgroundColor: "var(--background-modifier-hover)",
-              padding: "0.25em 0.3em",
-              borderRadius: "0.25em",
-              userSelect: "text",
-            }}>{template.value}</td>
+          <tr key={index} className={styles.optionRow}>
+            <td className={styles.optionCode}>{template.value}</td>
             <td>{template.name}</td>
           </tr>
         ))}

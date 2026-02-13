@@ -1,0 +1,28 @@
+.container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	font: var(--font-interface-theme);
+}
+
+.contentSection {
+	display: flex;
+	flex-direction: column;
+}
+
+.description {
+	white-space: pre-line;
+	margin-bottom: 1em;
+}
+
+.optionRow {
+	margin: 0.5em 0.5em 0 0;
+}
+
+.optionCode {
+	background-color: var(--background-modifier-hover);
+	padding: 0.25em 0.3em;
+	border-radius: 0.25em;
+	user-select: text;
+}

@@ -82,51 +82,32 @@ export const Ingredients = (
     (ingredient) => ingredient.isAddition,
   );
 
-  return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        gap: "0.5em",
-        marginTop: "1em",
-      }}
-    >
-      {mainInredients.map((ingredient) => (
-        <IngredientField
-          key={ingredient.index}
-          {...ingredient}
-        />
-      ))}
+return (
+  <div className={styles.ingredientsContainer}>
+    {mainInredients.map((ingredient) => (
+      <IngredientField
+        key={ingredient.index}
+        {...ingredient}
+      />
+    ))}
 
-      <div style={flexContainerStyle}>
-        <div style={flexIngredientNameStyle}>
-          <Item textAlign="right" showBorder={false}>
-            {t("RecipeCalculator.Total")}
-          </Item>
-        </div>
-        <div style={flexIngredientAmountStyle}>
-          <Item textAlign="center" showBorder={false}>
-            {ingredientsOverallSum}
-          </Item>
-        </div>
+    <div style={flexContainerStyle}>
+      <div style={flexIngredientNameStyle}>
+        <Item textAlign="right" showBorder={false}>
+          {t("RecipeCalculator.Total")}
+        </Item>
       </div>
+      <div style={flexIngredientAmountStyle}>
+        <Item textAlign="center" showBorder={false}>
+          {ingredientsOverallSum}
+        </Item>
+      </div>
+    </div>
 
-      {additionalIngredients.length > 0 && (<div style={{ marginBottom: "0.5em" }}>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            marginBottom: "0.5em",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "4px",
-            }}
-          >
+    {additionalIngredients.length > 0 && (
+      <div className={styles.additionsSection}>
+        <div className={styles.additionsHeader}>
+          <div className={styles.additionsHeaderContent}>
             <AttachmentIcon className={styles.additionsIcon} />
             <div className={styles.additionsTitle}>
               {t("RecipeCalculator.Additions")}

@@ -66,3 +66,14 @@
 	display: flex;
 	flex-direction: column;
 }
+
+.ratiosColumn {
+    display: flex;
+    flex-direction: column;
+}
+
+.ratiosRow {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+}

@@ -121,7 +121,6 @@
     "Loi": "LOI"
   },
   "Settings": {
-    "Title": "Segerlab plugin settings",
     "ShowMoreCoefficients": {
       "Title": "Show more coefficients in calculator",
       "Description": "Restart Obsidian after changing"

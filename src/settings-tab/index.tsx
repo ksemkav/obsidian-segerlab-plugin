@@ -17,9 +17,6 @@ export default class SegerlabPluginSettingsTab extends PluginSettingTab {
     const { containerEl } = this;
     containerEl.empty();
 
-    /** Settings Header */
-    new Setting(containerEl).setName(t("Settings.Title")).setHeading();
-
     /** Show more coefficients setting */
     new Setting(containerEl)
       .setName(t("Settings.ShowMoreCoefficients.Title"))

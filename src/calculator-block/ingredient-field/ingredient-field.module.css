@@ -35,3 +35,27 @@
 	height: 0.7em;
 	color: var(--text-accent);
 }
+
+.ingredientsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    margin-top: 1em;
+}
+
+.additionsSection {
+    margin-bottom: 0.5em;
+}
+
+.additionsHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5em;
+}
+
+.additionsHeaderContent {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}

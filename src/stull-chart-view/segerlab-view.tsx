@@ -44,10 +44,10 @@ export class SegerlabView extends ItemView {
     }, 3000, true);
 
     const onActiveLeafChange = (leaf: WorkspaceLeaf | null) => {
-      if (leaf?.view.getViewType() === "markdown") {
+      if (leaf?.view instanceof MarkdownView) {
         const displayText = leaf?.getDisplayText();
         if (displayText !== undefined) {
-          const document = (leaf.view as MarkdownView).getViewData();
+          const document = leaf.view.getViewData();
           render(displayText, document).run();
         }
       }

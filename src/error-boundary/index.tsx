@@ -1,7 +1,8 @@
-import React, { Component, ErrorInfo, ReactNode } from "react";
+import { Component, ErrorInfo, ReactNode } from "react";
 import Kafootka from "../assets/kafootka.svg";
 import i18next from "i18next";
 import { Trans } from "react-i18next";
+import styles from "./error-boundary.module.css";
 
 interface Props {
   children?: ReactNode;
@@ -34,33 +35,15 @@ export class ErrorBoundary extends Component<Props, State> {
   }
 }
 
-export const ErrorMessage = ({message}: {message?: string}) => (<div
-    style={{
-      display: "block",
-      minWidth: "400px",
-      border: "1px solid var(--background-modifier-border)",
-      padding: "1.5em",
-      margin: "3px",
-      boxSizing: "border-box",
-    }}
-  >
-    <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-      <Kafootka style={{
-        width: "10em",
-        height: "10em",
-        minWidth: "10em",
-        minHeight: "10em",
-        marginRight: "2em",
-      }} />
-      <div style={{ display: "flex", flexDirection: "column", padding: "1em", gap: "1em" }}>
-        <div style={{ fontWeight: 600, marginBottom: "1em" }}>{i18next.t("Error.Title")}</div>
+export const ErrorMessage = ({message}: {message?: string}) => (
+  <div className={styles.errorContainer}>
+    <div className={styles.errorContent}>
+      <Kafootka className={styles.errorIllustration} />
+      <div className={styles.errorDetails}>
+        <div className={styles.errorTitle}>{i18next.t("Error.Title")}</div>
         <div>
-          <Trans i18nKey={"Error.Description"} style={{ whiteSpace: "pre-line" }}>
-            Попробуйте ещё раз скопировать калькулятор или <a href={"https://t.me/glazprosvet/34074"} style={{
-            color: "var(--text-accent)",
-            cursor: "pointer",
-            textDecoration: "none",
-          }}> свяжитесь с нами</a>.
+          <Trans i18nKey={"Error.Description"} className={styles.errorDescription}>
+            Попробуйте ещё раз скопировать калькулятор или <a href={"https://t.me/glazprosvet/34074"} className={styles.errorLink}> свяжитесь с нами</a>.
           </Trans>
         </div>
         { message && (<div>{message}</div>) }

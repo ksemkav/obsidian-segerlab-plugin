@@ -20,26 +20,17 @@ export const CalculatorHeader = (
     stullChartPoint,
   }: CalculatorHeaderProps) => {
   const { parentRef, width, height } = useParentSize({ debounceTime: 50 });
+  // Forcing the chart to be square.
+  const size = Math.max(width, height);
 
   return (
-    <div style={{
-      display: "flex",
-      flexDirection: "row",
-      justifyContent: "space-between",
-      marginBottom: "1.5em",
-      alignItems: "top",
-    }}>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-        }}
-      >
-        <div ref={parentRef} style={{ width: "7.8em", height: "7.8em" }}>
+    <div className={styles.headerContainer}>
+      <div className={styles.headerContent}>
+        <div ref={parentRef} className={styles.chartContainer}>
           <StullChart
             minimized
-            width={width}
-            height={height}
+            width={size}
+            height={size}
             points={[{
               al2O3Value: stullChartPoint.al2O3Value,
               siO2Value: stullChartPoint.siO2Value,
@@ -47,31 +38,11 @@ export const CalculatorHeader = (
               name: title,
             }]} />
         </div>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            marginLeft: "2em",
-          }}
-        >
-          <div
-            style={{
-              fontWeight: 600,
-              fontSize: "1.2em",
-              lineHeight: "1.2em",
-              fontFamily: "system-ui",
-            }}
-          >
+        <div className={styles.headerInfo}>
+          <div className={styles.headerTitle}>
             {title}
           </div>
-          <div
-            style={{
-              color: "var(--text-faint)",
-              fontSize: "0.9em",
-              lineHeight: "2em",
-              fontFamily: "system-ui",
-            }}
-          >
+          <div className={styles.headerDate}>
             {localFormat(versionCreatedAt, "Pp")}
           </div>
         </div>

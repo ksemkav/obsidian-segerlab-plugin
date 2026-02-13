@@ -1,14 +1,13 @@
 {
 	"id": "segerlab",
 	"name": "Segerlab",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"minAppVersion": "0.15.0",
 	"description": "Renders calculator views within notes from JSON data copied from the Segerlab app.",
 	"author": "Semyon Kononchuk",
 	"authorUrl": "https://kononchuk.me",
   "fundingUrl": {
-    "GitHub Sponsor": "https://github.com/sponsors/ksemkav",
-    "Segerlab": "https://www.segerlab.ru/"
+    "GitHub Sponsor": "https://github.com/sponsors/ksemkav"
   },
 	"isDesktopOnly": false
 }

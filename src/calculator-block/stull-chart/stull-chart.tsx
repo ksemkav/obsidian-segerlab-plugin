@@ -101,7 +101,7 @@ export const StullChart = (
   });
 
   const handleMouseOver = (point: StullChartCalculatorPoint) => (event: React.MouseEvent) => {
-    const svgElement = (event.target as SVGElement).ownerSVGElement;
+    const svgElement = (event.target instanceof SVGElement) && event.target.ownerSVGElement;
     if (svgElement) {
       const coords = localPoint(svgElement, event);
       showTooltip({
@@ -126,7 +126,7 @@ export const StullChart = (
   const markerSize = minimized ? "0.5em" : "0.35em";
 
   return (
-    <div className={clsx(styles.stullChartWrapper)}>
+    <div>
       <svg width={width} height={height} ref={containerRef}>
         <rect className={styles.stullChartContainer} x={0} y={0} width={width} height={height} />
         <Group left={margin.left} top={margin.top}>
@@ -221,11 +221,11 @@ export const StullChart = (
         className={clsx(styles.stullPointTooltip, { [styles.stullPointTooltipHidden]: !tooltipOpen })}
         unstyled
         applyPositionStyle>
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          {!minimized && (<div style={{ fontWeight: 600 }}>{(tooltipData as StullChartCalculatorPoint)?.name}</div>)}
+        <div className={styles.tooltipContent}>
+          {!minimized && (<div className={styles.tooltipTitle}>{(tooltipData as StullChartCalculatorPoint)?.name}</div>)}
           <div>
             {`${(tooltipData as StullChartCalculatorPoint)?.siO2Value?.toFixed(3)} SiO₂,`
-              +` ${(tooltipData as StullChartPointDto)?.al2O3Value?.toFixed(3)} Al₂O₃`}
+              +` ${(tooltipData as StullChartCalculatorPoint)?.al2O3Value?.toFixed(3)} Al₂O₃`}
           </div>
         </div>
       </TooltipInPortal>

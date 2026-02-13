@@ -39,7 +39,6 @@ export async function initializeLocalization(selectedLanguage: string) {
 
 export async function changeLanguage(language: Language) {
   // handle there all locale dependent resources like a date presentation
-  document.documentElement.lang = language;
   setLocale(getDefaultLocaleForLanguage(language));
 
   // change language as a last step because it will cause rerendering

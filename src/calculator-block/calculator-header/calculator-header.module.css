@@ -19,3 +19,41 @@
 	opacity: 0.8;
 	transform: translateY(2px);
 }
+
+.headerContainer {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-bottom: 1.5em;
+	align-items: top;
+}
+
+.headerContent {
+	display: flex;
+	flex-direction: row;
+}
+
+.chartContainer {
+	width: 7.8em;
+	height: 7.8em;
+}
+
+.headerInfo {
+	display: flex;
+	flex-direction: column;
+	margin-left: 2em;
+}
+
+.headerTitle {
+	font-weight: 600;
+	font-size: 1.2em;
+	line-height: 1.2em;
+	font-family: system-ui;
+}
+
+.headerDate {
+	color: var(--text-faint);
+	font-size: 0.9em;
+	line-height: 2em;
+	font-family: system-ui;
+}

@@ -64,5 +64,11 @@
 	opacity: 0.3;
 }
 
+.tooltipContent {
+	display: flex;
+	flex-direction: column;
+}
 
-
+.tooltipTitle {
+	font-weight: 600;
+}

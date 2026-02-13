@@ -124,7 +124,6 @@
     "ShowMoreCoefficients": "Отображать больше коэффициентов в калькуляторе"
   },
   "Settings": {
-    "Title": "Настройки segerlab плагина",
     "ShowMoreCoefficients": {
       "Title": "Отображать больше коэффициентов в калькуляторе",
       "Description": "Перезагрузите Obsidian после изменения"

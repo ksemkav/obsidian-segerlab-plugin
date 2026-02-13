@@ -1,0 +1,44 @@
+.viewContainer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+}
+
+.chartWrapper {
+	width: 100%;
+}
+
+.emptyStateContainer {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.emptyStateContent {
+	display: flex;
+	flex-direction: column;
+}
+
+.emptyStateMessage {
+	color: var(--text-normal);
+	font-size: 1.2em;
+	font-weight: 500;
+}
+
+.emptyStateHint {
+	margin-top: 0.5em;
+	color: var(--text-faint);
+	font-size: 0.8em;
+}
+
+.emptyStateIllustration {
+	width: 8em;
+}
+
+.chartContainer {
+	width: 100%;
+	height: 400px;
+}
